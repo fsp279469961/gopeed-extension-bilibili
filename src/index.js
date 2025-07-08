@@ -60,7 +60,8 @@ gopeed.events.onResolve(async (ctx) => {
   }
 
   const files = parts.flatMap((p) => {
-    const namePrefix = `${info.title}${isMultiPart ? `(P${p + 1})` : ''}`;
+    // const namePrefix = `${info.title}${isMultiPart ? `(P${p + 1})` : ''}`;
+    const namePrefix = isMultiPart ? info.pages[p].part : info.title;
 
     function buildFile(type) {
       /** @type { import('@gopeed/types').FileInfo } */
